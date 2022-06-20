@@ -100,11 +100,6 @@ document.addEventListener("keydown", e => {
     } else text += e.key, pause = 0;
 });
 
-
-function showStats(){
-
-}
-
 function paint(currTime) {
     if (timer < 0) return;
     window.requestAnimationFrame(paint);
