@@ -54,13 +54,17 @@ dictionary.push("-");
 dictionary.push("CapsLock");
 
 function insertWords(){
+    let cnt = 0;
     pointerToTaskText = 0;
-    taskText = listWords.slice(pointerToListWords,pointerToListWords+25);
-    for (let idx = pointerToListWords; idx < pointerToListWords + 25; idx++) {
+    taskText = [];
+    for (let idx = pointerToListWords; 1; idx++) {
+        if (listWords[idx].length+cnt>177) break;
+        taskText.push(listWords[idx]);
         const word = document.createElement('span');
         word.classList.add(`word${idx}`);
         word.innerText = listWords[idx] + ' ';
         textArea.insertAdjacentElement('beforeend', word);
+        cnt += listWords[idx].length+1;
     }
     const currWord = document.querySelector(`.word${pointerToListWords}`);
     currWord.classList.add("currentSpan");
