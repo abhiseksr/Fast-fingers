@@ -144,7 +144,7 @@ function main() {
         _ksw.innerText = '' + faltuKeyStrokes;
         _ksr.innerText = '' + keyStrokes-faltuKeyStrokes;
         _kstt.innerText = '' + keyStrokes;
-        _score.innerText = '' + correctWords;
+        _score.innerText = '' + correctWords + ' WPM';
         _acc.innerText = '' + parseInt((keyStrokes-faltuKeyStrokes)*100/(keyStrokes));
 
         return;
