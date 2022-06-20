@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="FastFIngers.css">
+    <title>Typing Test</title>
+</head>
+
+<body class="container">
+    <!-- the quick brown fox jumps over the lazy dog. -->
+    <div class="contain">
+        <h1 class="heading">FastFingers</h1>
+        <div name="task" id="task" class="task">
+        </div>
+        <button class="restart controls">Restart <div class="icon">&#8635;</div></button>
+        <button type="text" class="timer controls">60</button>
+        <input class="typeHere">
+        <div class="stats">
+            <div class="scored">
+                <div class="score">0 WPM</div>
+                <div class="plain">(words per minute)</div>
+            </div>
+            <div class="keystrokes">Keystrokes <span class="kst">( <span class="ksr">0</span> | <span class="ksw">0</span> ) <span class="kstt">0</span></span></div>
+            <div class="accuracy">Accuracy <span class="accperc"><span class="acc">100</span>%</span></div>
+            <div class="correct-words"><span class="cwords">Correct Words</span> <span class="cw">0</span></div>
+            <div class="wrong-words"><span class="wwords">Wrong Words</span> <span class="ww">0</span></div>
+        </div>
+    </div>
+    <script src="FastFingers.js"></script>
+</body>
+
+</html>
