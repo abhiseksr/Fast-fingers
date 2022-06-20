@@ -23,17 +23,14 @@ let startIdx = Math.floor(Math.random() * 500);
 const textArea = document.getElementById('task');
 textArea.innerText = "";
 
-for (let idx = startIdx; idx < startIdx + 150; idx++) {
-    const word = document.createElement('span');
-    word.classList.add(`word${idx}`);
-    word.innerText = listWords[idx] + ' ';
-    textArea.insertAdjacentElement('beforeend', word);
-}
+let taskText = [];
 
-let timer = 12;
+console.log(taskText);
+
+let timer = 60;
 let pause = 1;
 let wrongWords = 0;
-let pointer = startIdx;
+let pointerToListWords = startIdx, pointerToTaskText = 0;
 let correctWords = 0;
 let prevTime = 0;
 let frameNum = 0;
@@ -56,11 +53,23 @@ dictionary.push("Backspace");
 dictionary.push("-");
 dictionary.push("CapsLock");
 
-
+function insertWords(){
+    pointerToTaskText = 0;
+    taskText = listWords.slice(pointerToListWords,pointerToListWords+25);
+    for (let idx = pointerToListWords; idx < pointerToListWords + 25; idx++) {
+        const word = document.createElement('span');
+        word.classList.add(`word${idx}`);
+        word.innerText = listWords[idx] + ' ';
+        textArea.insertAdjacentElement('beforeend', word);
+    }
+    const currWord = document.querySelector(`.word${pointerToListWords}`);
+    currWord.classList.add("currentSpan");
+}
 
 let text = "";
+insertWords();
 
-document.querySelector(`.word${pointer}`).classList.add("currentSpan");
+
 
 function contains(e) {
     for (let idx = 0; idx < dictionary.length; idx++) {
@@ -76,18 +85,23 @@ document.addEventListener("keydown", e => {
     else if (e.key === ' ') {
         const typeArea = document.querySelector(".typeHere");
         typeArea.value = "";
-        const prevWord = document.querySelector(`.word${pointer}`);
+        const prevWord = document.querySelector(`.word${pointerToListWords}`);
         prevWord.classList.remove("currentSpan");
-        if (listWords[pointer] === text) {
+        if (taskText[pointerToTaskText] === text) {
             correctWords++;
         } else {
             faltuKeyStrokes += text.length;
             prevWord.classList.add("wrong");
             wrongWords++;
         }
-        pointer++;
+        pointerToListWords++;
+        pointerToTaskText++;
+        if (pointerToTaskText>=taskText.length){
+            textArea.innerText = "";
+            insertWords();
+        }
         text = "";
-        const currWord = document.querySelector(`.word${pointer}`);
+        const currWord = document.querySelector(`.word${pointerToListWords}`);
         currWord.classList.add("currentSpan");
         pause = 0;
     } 
