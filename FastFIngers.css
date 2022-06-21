@@ -56,23 +56,20 @@ input{
     width: 50%;
     background-color: #212d40;
     color: whitesmoke;
-    padding: 8px;   
+    padding: 9px;   
     border: 1px solid whitesmoke;
     font-size: 18px;
 }
 
 .controls{
-    padding: 10px 10px;
+    padding: 12px 12px;
     background-color: #a4c3b2;
     font-family: 'Quicksand', sans-serif;
     margin-bottom: 5px;
 }
 
 .timer{
-    width: 6.9vh;
-    padding: 12px;
-    text-align: center;
-    display: inline;
+    width: 7vh;
 }
 
 .stats{
