@@ -23,6 +23,8 @@ let startIdx = Math.floor(Math.random() * 500);
 const textArea = document.getElementById('task');
 textArea.innerText = "";
 
+const stats = document.querySelector(".stats");
+
 let taskText = [];
 
 console.log(taskText);
@@ -58,7 +60,7 @@ function insertWords(){
     pointerToTaskText = 0;
     taskText = [];
     for (let idx = pointerToListWords; 1; idx++) {
-        if (listWords[idx].length+cnt>177) break;
+        if (listWords[idx].length+cnt>150) break;
         taskText.push(listWords[idx]);
         const word = document.createElement('span');
         word.classList.add(`word${idx}`);
@@ -81,6 +83,34 @@ function contains(e) {
     }
     return false;
 }
+
+function showStats(){
+        
+    const _ww = document.querySelector(".ww");
+    const _cw = document.querySelector(".cw");
+    const _acc = document.querySelector(".acc");
+    const _ksw = document.querySelector(".ksw");
+    const _ksr = document.querySelector(".ksr");
+    const _kstt = document.querySelector(".kstt");
+    const _score = document.querySelector(".score");
+
+    _ww.innerText = '' + wrongWords;
+    _cw.innerText = '' + correctWords;
+    _ksw.innerText = '' + faltuKeyStrokes;
+    _ksr.innerText = '' + keyStrokes-faltuKeyStrokes;
+    _kstt.innerText = '' + keyStrokes;
+    _score.innerText = '' + parseInt(correctWords*60/(60-timer+0.1)) + ' WPM';
+    _acc.innerText = '' + parseInt((keyStrokes-faltuKeyStrokes)*100/(keyStrokes));
+}
+
+document.querySelector(".head").addEventListener("click", e=>{
+    if (stats.style.display==="none")
+    stats.style.display = "grid";
+    else
+    {
+        stats.style.display = "none";
+    }
+});
 
 document.addEventListener("keydown", e => {
     keyStrokes++;
@@ -116,6 +146,7 @@ document.addEventListener("keydown", e => {
         pause = 0;
         faltuKeyStrokes++;
     } else text += e.key, pause = 0;
+    showStats();
 });
 
 function paint(currTime) {
@@ -133,23 +164,12 @@ function main() {
         const timeUp = document.querySelector(".timer");
         timeUp.innerText = timer;
         timer--;
+        const _score = document.querySelector(".score");
+        _score.innerText = '' + parseInt(correctWords*60/(60-timer+0.1)) + ' WPM';
     }
     if (timer < 0) {
-        const _ww = document.querySelector(".ww");
-        const _cw = document.querySelector(".cw");
-        const _acc = document.querySelector(".acc");
-        const _ksw = document.querySelector(".ksw");
-        const _ksr = document.querySelector(".ksr");
-        const _kstt = document.querySelector(".kstt");
-        const _score = document.querySelector(".score");
-
-        _ww.innerText = '' + wrongWords;
-        _cw.innerText = '' + correctWords;
-        _ksw.innerText = '' + faltuKeyStrokes;
-        _ksr.innerText = '' + keyStrokes-faltuKeyStrokes;
-        _kstt.innerText = '' + keyStrokes;
-        _score.innerText = '' + correctWords + ' WPM';
-        _acc.innerText = '' + parseInt((keyStrokes-faltuKeyStrokes)*100/(keyStrokes));
+        textArea.innerText = "";
+        stats.style.display = "grid";
 
         return;
     }

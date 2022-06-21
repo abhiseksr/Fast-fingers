@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="FastFIngers.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <title>Typing Test</title>
 </head>
 
@@ -19,15 +20,19 @@
         <button class="restart controls">Restart <div class="icon">&#8635;</div></button>
         <button type="text" class="timer controls">60</button>
         <input class="typeHere">
-        <div class="stats">
-            <div class="scored">
-                <div class="score">0 WPM</div>
-                <div class="plain">(words per minute)</div>
+        <div class="statistics">
+            <button class="head">Click here to hide live stats</button>
+            <div class="stats">
+                <div class="scored">
+                    <div class="score">0 WPM</div>
+                    <div class="plain">(words per minute)</div>
+                </div>
+                <div class="keystrokes">Keystrokes <span class="kst">( <span class="ksr">0</span> | <span
+                            class="ksw">0</span> ) <span class="kstt">0</span></span></div>
+                <div class="accuracy">Accuracy <span class="accperc"><span class="acc">100</span>%</span></div>
+                <div class="correct-words"><span class="cwords">Correct Words</span> <span class="cw">0</span></div>
+                <div class="wrong-words"><span class="wwords">Wrong Words</span> <span class="ww">0</span></div>
             </div>
-            <div class="keystrokes">Keystrokes <span class="kst">( <span class="ksr">0</span> | <span class="ksw">0</span> ) <span class="kstt">0</span></span></div>
-            <div class="accuracy">Accuracy <span class="accperc"><span class="acc">100</span>%</span></div>
-            <div class="correct-words"><span class="cwords">Correct Words</span> <span class="cw">0</span></div>
-            <div class="wrong-words"><span class="wwords">Wrong Words</span> <span class="ww">0</span></div>
         </div>
     </div>
     <script src="FastFingers.js"></script>

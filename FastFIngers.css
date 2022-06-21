@@ -1,7 +1,8 @@
 body{
-    min-width: 100vw;
+    width: 100vw;
     min-height: 100vh;
     background-color: #131516;
+    
 }
 
 .contain{
@@ -67,8 +68,7 @@ input{
 }
 
 .stats{
-    margin-top: 30px;
-    border: 2px solid whitesmoke;
+    /* border: 2px solid whitesmoke; */
     width: 250px;
     height: 250px;
     color: whitesmoke;
@@ -78,9 +78,27 @@ input{
     grid-template-rows: 40px repeat(4,1fr);
     padding: 5px 15px 15px 15px;
     font-weight: 300;
+    box-sizing: border-box;
 }
 
+.head{
+    color: black;
+    width: 250px; 
+    background-color: transparent;
+    border-style: none; 
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+    padding: 10px 5px;
+    background-color: #a4c3b2;
+    text-transform: uppercase;
+    font-size: 13px;
+    /* border: 2px solid whitesmoke; */
+    /* border-bottom: none; */
+}
 
+.statistics{
+    margin-top: 30px;
+}
 
 
 .scored{
