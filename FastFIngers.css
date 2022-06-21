@@ -53,19 +53,26 @@ input{
     border: none;
     resize: none;
     outline: none;
-    height: 6.9vh;
     width: 50%;
     background-color: #212d40;
     color: whitesmoke;
-    padding-left: 15px;
+    padding: 8px;   
     border: 1px solid whitesmoke;
     font-size: 18px;
 }
 
 .controls{
-    padding: 10px 20px;
+    padding: 10px 10px;
     background-color: #a4c3b2;
     font-family: 'Quicksand', sans-serif;
+    margin-bottom: 5px;
+}
+
+.timer{
+    width: 6.9vh;
+    padding: 12px;
+    text-align: center;
+    display: inline;
 }
 
 .stats{
