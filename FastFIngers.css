@@ -27,6 +27,7 @@ h1{
     color: whitesmoke;
     border-bottom: 1px solid whitesmoke;
     padding-bottom: 8px;
+    font-family: 'Quicksand',sans-serif;
 }
 
 button{
@@ -64,7 +65,7 @@ input{
 .controls{
     padding: 10px 20px;
     background-color: #a4c3b2;
-
+    font-family: 'Quicksand', sans-serif;
 }
 
 .stats{
@@ -86,12 +87,9 @@ input{
     width: 250px; 
     background-color: transparent;
     border-style: none; 
-    font-weight: 600;
     font-family: 'Quicksand', sans-serif;
     padding: 10px 5px;
     background-color: #a4c3b2;
-    text-transform: uppercase;
-    font-size: 13px;
     /* border: 2px solid whitesmoke; */
     /* border-bottom: none; */
 }
