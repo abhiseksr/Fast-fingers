@@ -20,6 +20,7 @@ document.querySelector(".restart").addEventListener("click", e => {
 
 let startIdx = Math.floor(Math.random() * 500);
 
+const typeArea = document.querySelector(".typeHere");
 const textArea = document.getElementById('task');
 textArea.innerText = "";
 
@@ -31,6 +32,7 @@ console.log(taskText);
 
 let timer = 60;
 let pause = 1;
+let gameOver = 0;
 let wrongWords = 0;
 let pointerToListWords = startIdx, pointerToTaskText = 0;
 let correctWords = 0;
@@ -60,7 +62,7 @@ function insertWords(){
     pointerToTaskText = 0;
     taskText = [];
     for (let idx = pointerToListWords; 1; idx++) {
-        if (listWords[idx].length+cnt>150) break;
+        if (listWords[idx].length+cnt>155) break;
         taskText.push(listWords[idx]);
         const word = document.createElement('span');
         word.classList.add(`word${idx}`);
@@ -113,11 +115,11 @@ document.querySelector(".head").addEventListener("click", e=>{
 });
 
 document.addEventListener("keydown", e => {
+    if (gameOver) return;
     keyStrokes++;
     console.log(e.key);
     if (!contains(e.key)) faltuKeyStrokes++;
     else if (e.key === ' ') {
-        const typeArea = document.querySelector(".typeHere");
         typeArea.value = "";
         const prevWord = document.querySelector(`.word${pointerToListWords}`);
         prevWord.classList.remove("currentSpan");
@@ -168,9 +170,10 @@ function main() {
         _score.innerText = '' + parseInt(correctWords*60/(60-timer+0.1)) + ' WPM';
     }
     if (timer < 0) {
-        textArea.innerText = "";
+        textArea.style.display = "none";
         stats.style.display = "grid";
-
+        typeArea.disabled = true;
+        gameOver = 1;
         return;
     }
 }

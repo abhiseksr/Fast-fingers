@@ -2,7 +2,6 @@ body{
     width: 100vw;
     min-height: 100vh;
     background-color: #131516;
-    
 }
 
 .contain{
@@ -20,14 +19,15 @@ body{
     background-color: rgba(255, 255, 255, 0.13);
     padding: 5px;
     font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1{
     margin: 20px 0;
-    color: whitesmoke;
+    color: #a4c3b2;
     border-bottom: 1px solid whitesmoke;
     padding-bottom: 8px;
-    font-family: 'Quicksand',sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 button{
@@ -56,15 +56,17 @@ input{
     width: 50%;
     background-color: #212d40;
     color: whitesmoke;
-    padding: 9px;   
+    padding: 5px 0 5px 15px;
     border: 1px solid whitesmoke;
-    font-size: 18px;
+    font-size: 24px;
+    position: relative;
+    top: 3px;
 }
 
 .controls{
     padding: 12px 12px;
     background-color: #a4c3b2;
-    font-family: 'Quicksand', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 5px;
 }
 
@@ -73,7 +75,6 @@ input{
 }
 
 .stats{
-    /* border: 2px solid whitesmoke; */
     width: 250px;
     height: 250px;
     color: whitesmoke;
@@ -91,11 +92,8 @@ input{
     width: 250px; 
     background-color: transparent;
     border-style: none; 
-    font-family: 'Quicksand', sans-serif;
     padding: 10px 5px;
     background-color: #a4c3b2;
-    /* border: 2px solid whitesmoke; */
-    /* border-bottom: none; */
 }
 
 .statistics{
