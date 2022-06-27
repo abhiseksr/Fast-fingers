@@ -164,3 +164,10 @@ input{
 .accperc{
     font-weight: 700;
 }
+
+@media screen and (max-width:500px) {
+    .typeHere{
+        display: block;
+        width: 100%;
+    }
+}
