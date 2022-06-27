@@ -170,4 +170,7 @@ input{
         display: block;
         width: 100%;
     }
+    .controls{
+        width: 40%;
+    }
 }
