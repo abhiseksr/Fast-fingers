@@ -17,6 +17,21 @@ document.querySelector(".restart").addEventListener("click", e => {
     location.reload();
 });
 
+const timeButton = document.querySelector(".timer");
+
+let timeButtonClicked = 0;
+
+timeButton.addEventListener("click", e=>{
+    if (timeButtonClicked) {
+        timeButton.innerText = timer + '';
+        timeButtonClicked = 0;
+    }
+    else {
+        timeButtonClicked = 1;
+        timeButton.innerText = "__";
+    }
+});
+
 
 let startIdx = Math.floor(Math.random() * 500);
 
@@ -62,7 +77,7 @@ function insertWords(){
     pointerToTaskText = 0;
     taskText = [];
     for (let idx = pointerToListWords; 1; idx++) {
-        if (listWords[idx].length+cnt>155) break;
+        if (listWords[idx].length+cnt>110) break;
         taskText.push(listWords[idx]);
         const word = document.createElement('span');
         word.classList.add(`word${idx}`);
@@ -105,6 +120,7 @@ function showStats(){
     _acc.innerText = '' + parseInt((keyStrokes-faltuKeyStrokes)*100/(keyStrokes));
 }
 
+
 document.querySelector(".head").addEventListener("click", e=>{
     if (stats.style.display==="none")
     stats.style.display = "grid";
@@ -114,7 +130,7 @@ document.querySelector(".head").addEventListener("click", e=>{
     }
 });
 
-document.addEventListener("keydown", e => {
+document.querySelector(".typeHere").addEventListener("keydown", e => {
     if (gameOver) return;
     keyStrokes++;
     console.log(e.key);
@@ -122,6 +138,7 @@ document.addEventListener("keydown", e => {
     else if (e.key === ' ') {
         typeArea.value = "";
         const prevWord = document.querySelector(`.word${pointerToListWords}`);
+        prevWord.classList.remove("bg-wrong");
         prevWord.classList.remove("currentSpan");
         if (taskText[pointerToTaskText] === text) {
             correctWords++;
@@ -148,6 +165,13 @@ document.addEventListener("keydown", e => {
         pause = 0;
         faltuKeyStrokes++;
     } else text += e.key, pause = 0;
+    const currWord = document.querySelector(`.word${pointerToListWords}`);
+    if (text===taskText[pointerToTaskText].slice(0,text.length)){
+        currWord.classList.remove("bg-wrong");
+    }
+    else{
+        currWord.classList.add("bg-wrong");
+    }
     showStats();
 });
 
@@ -164,6 +188,7 @@ window.requestAnimationFrame(paint);
 function main() {
     if (pause === 0 && frameNum % 60 === 0) {
         const timeUp = document.querySelector(".timer");
+        if (timeButtonClicked===0 && timer>-1)
         timeUp.innerText = timer;
         timer--;
         const _score = document.querySelector(".score");
