@@ -1,11 +1,13 @@
-body{
-    width: 100vw;
+body, .container{
+    width: 100%;
     min-height: 100vh;
     background-color: #131516;
+    padding: 0;
+    margin: 0;
 }
 
 .contain{
-    width: 100%;
+    width: 100vw;
     min-height: 100vh;
     background-color: #02488a41;
     box-sizing: border-box;
